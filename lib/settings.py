@@ -81,8 +81,8 @@ def parse_settings():
 
     # Other options
     parser.add_argument(
-            "args", 
-            nargs=argparse.REMAINDER)
+            "args",
+            nargs="+")
 
     # Parse the arguments
     args = vars(parser.parse_args())
