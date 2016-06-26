@@ -1,12 +1,22 @@
 import inspect
 import sys
+import os
 
-debugging = True
+if "PYMON_DEBUG" in os.environ and os.environ["PYMON_DEBUG"] != "0":
+    debugging = True
+else:
+    debugging = False
 
 BOLD        = "\033[1m"
 END         = "\033[0m"
 WARN_COLOUR = "\033[93m"
 FAIL_COLOUR = "\033[91m"
+
+def is_debug():
+    return debugging
+
+def force_debug(enable=True):
+    debugging = enable
 
 def debug(msg):
     if debugging:
