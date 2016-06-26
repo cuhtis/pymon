@@ -9,7 +9,7 @@ from lib.transport import PymonTransport
 from lib.debug import *
 
 def run():
-    cli = parseCli(sys.argv)
+    cli = parse_cli(sys.argv)
 
     event_handler = PymonEventHandler(
             cli["regexes"], 
@@ -22,7 +22,7 @@ def run():
 
     transport = PymonTransport()
 
-    listener = PymonListener(cli["app"])
+    listener = PymonListener(cli["execp"], cli["app_args"])
     transport.add_listener(listener)
 
     try:

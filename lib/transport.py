@@ -8,6 +8,10 @@ class PymonTransport():
         debug("Adding listener")
         self.listeners.append(listener)
     
+    def remove_listener(self, listener):
+        debug("Removing listener")
+        self.listeners.remove(listener)
+    
     def get_listeners(self):
         return self.listeners
     
