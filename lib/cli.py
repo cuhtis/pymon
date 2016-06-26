@@ -11,6 +11,6 @@ def parseCli(argv):
     cli["app_args"] = argv[2:]
     cli["path"] = '.'
     cli["regexes"] = ['.*[.]py']
-    cli["ignores"] = None
+    cli["ignores"] = ['.*[.]pyc']
     
     return cli 
