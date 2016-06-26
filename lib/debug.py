@@ -1,14 +1,6 @@
 import inspect
 import sys
-import os
-
-
-# Check if debugging is enabled
-# TODO: Add option to use config file to enable debugging
-if "PYMON_DEBUG" in os.environ and os.environ["PYMON_DEBUG"] != "0":
-    debugging = True
-else:
-    debugging = False
+from lib.settings import get_settings
 
 
 # Formatting constants
@@ -19,7 +11,9 @@ FAIL_COLOUR = "\033[91m"
 
 
 def is_debug():
-    # Get debugging setting
+    # Check if debugging is enabled
+    debugging = get_settings()["debug"]
+
     return debugging
 
 
@@ -29,7 +23,7 @@ def force_debug(enable=True):
 
 
 def debug(msg):
-    if debugging:
+    if is_debug():
         # Print message with caller information
         stack = inspect.stack()[1]
         caller = "%s%s:%d:%s%s" % (BOLD, stack[1], stack[2], stack[3], END)
@@ -37,7 +31,7 @@ def debug(msg):
 
 
 def warn(msg):
-    if debugging:
+    if is_debug():
         # Print message with caller information in WARN_COLOUR
         stack = inspect.stack()[1]
         caller = "%s%s:%d:%s%s" % (BOLD, stack[1], stack[2], stack[3], END)
@@ -47,7 +41,7 @@ def warn(msg):
 
 
 def wtf(msg, trace=False):
-    if debugging:
+    if is_debug():
         # Print message with caller information in FAIL_COLOUR then exit
         stack = inspect.stack()[1]
         caller = "%s%s:%d:%s%s" % (BOLD, stack[1], stack[2], stack[3], END)

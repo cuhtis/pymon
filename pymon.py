@@ -2,7 +2,7 @@
 
 import sys
 from watchdog.observers import Observer
-from lib.cli import parse_cli
+from lib.settings import parse_settings
 from lib.watch import PymonEventHandler
 from lib.listener import PymonListener
 from lib.transport import transport
@@ -10,27 +10,28 @@ from lib.debug import *
 
 
 def run():
-    # Parse command-line arguments
-    cli = parse_cli()
+    # Create and read all the settings
+    settings = parse_settings()
+    debug(settings)
 
     # Create an event handler for file system changes
     event_handler = PymonEventHandler(
-            cli["regexes"], 
-            cli["ignores"], 
+            settings["regexes"], 
+            settings["ignores"], 
             True, False)
 
     # Create a file system observer
     observer = Observer()
     observer.schedule(
             event_handler, 
-            cli["path"], 
+            settings["path"], 
             recursive=True)
     observer.start()
 
     # Create and register a listener for the user's application
     listener = PymonListener(
-            cli["prog"], 
-            cli["app_args"])
+            settings["prog"], 
+            settings["app_args"])
     transport.add_listener(listener)
 
     try:
