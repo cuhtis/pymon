@@ -1,19 +1,23 @@
 import sys
 import argparse
 import textwrap
+import ConfigParser
 
 def parse_cli():
+    config = ConfigParser.ConfigParser()
+    config.read('settings.cfg')
+
     parser = argparse.ArgumentParser(sys.argv[0],
             formatter_class=argparse.RawDescriptionHelpFormatter,
             description=textwrap.dedent('''\
-                    %s
+                    Pymon %s
                     --------------------------------
                     Created by Curtis Li
-                    ''' % get_version()))
+                    ''' % config.get("pymon", "version")))
 
     parser.add_argument("-v", "--version", 
             action="version", 
-            version=get_version())
+            version=config.get("pymon", "version"))
     parser.add_argument("-r", "-R", "--recursive", 
             action="store_true",
             help="recursively monitor directories (Default)")
@@ -24,7 +28,7 @@ def parse_cli():
             action="store",
             metavar="PROG",
             default="python",
-            help="program to execute application (Default: python)")
+            help="program to execute application (Default: %s)" % config.get("pymon", "prog"))
     parser.add_argument("--match",
             action="append",
             metavar="REGEX",
@@ -47,6 +51,3 @@ def parse_cli():
     cli["ignores"] = ['.*[.]pyc']
     
     return cli 
-
-def get_version():
-    return "%s %s" % ("Pymon", "0.1")
