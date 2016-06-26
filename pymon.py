@@ -22,7 +22,9 @@ def run():
             user_input = raw_input("")
             if user_input == "rs":
                 print "Restarting"
-    except KeyboardInterrupt:
+            elif user_input == "stop":
+                raise Exception
+    except (KeyboardInterrupt, Exception) as e:
         observer.stop()
         observer.join()
 
