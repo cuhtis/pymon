@@ -1,15 +1,17 @@
 from lib.debug import debug
 
-class Transport():
+class PymonTransport():
     def __init__(self):
         self.listeners = []
 
-    def addListener(self, listener):
+    def add_listener(self, listener):
         debug("Adding listener")
-        listeners.append(listener)
+        self.listeners.append(listener)
     
-    def getListeners(self):
+    def get_listeners(self):
         return self.listeners
     
     def emit(self, msg):
         debug("Received message: %s" % msg)
+        for listener in self.listeners:
+            listener.handle_msg(msg)

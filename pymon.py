@@ -4,7 +4,8 @@ import sys
 from watchdog.observers import Observer
 from lib.cli import parseCli
 from lib.watch import PymonEventHandler
-from lib.transport import Transport
+from lib.listener import PymonListener
+from lib.transport import PymonTransport
 from lib.debug import *
 
 def run():
@@ -19,7 +20,10 @@ def run():
     observer.schedule(event_handler, cli["path"], recursive=True)
     observer.start()
 
-    transport = Transport()
+    transport = PymonTransport()
+
+    listener = PymonListener(cli["app"])
+    transport.add_listener(listener)
 
     try:
         while True:
