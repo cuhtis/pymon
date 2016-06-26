@@ -7,8 +7,8 @@ def parseCli(argv):
 
     cli = dict()
 
-    cli["app"] = sys.argv[1]
-    cli["app_args"] = sys.argv[2:]
+    cli["app"] = argv[1]
+    cli["app_args"] = argv[2:]
     cli["path"] = '.'
     cli["regexes"] = ['.*[.]py']
     cli["ignores"] = None
