@@ -22,7 +22,7 @@ def run():
 
     transport = PymonTransport()
 
-    listener = PymonListener(cli["execp"], cli["app_args"])
+    listener = PymonListener(cli["prog"], cli["app_args"])
     transport.add_listener(listener)
 
     try:

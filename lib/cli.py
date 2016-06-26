@@ -40,7 +40,7 @@ def parse_cli():
     
     cli = dict()
 
-    cli["execp"] = "python"
+    cli["prog"] = "python"
     cli["app_args"] = ' '.join(sys.argv[1:])
     cli["path"] = '.'
     cli["regexes"] = ['.*[.]py']
