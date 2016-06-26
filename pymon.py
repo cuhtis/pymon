@@ -2,14 +2,14 @@
 
 import sys
 from watchdog.observers import Observer
-from lib.cli import parseCli
+from lib.cli import parse_cli
 from lib.watch import PymonEventHandler
 from lib.listener import PymonListener
 from lib.transport import PymonTransport
 from lib.debug import *
 
 def run():
-    cli = parse_cli(sys.argv)
+    cli = parse_cli(
 
     event_handler = PymonEventHandler(
             cli["regexes"], 
