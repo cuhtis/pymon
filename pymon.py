@@ -9,7 +9,7 @@ from lib.transport import PymonTransport
 from lib.debug import *
 
 def run():
-    cli = parse_cli(
+    cli = parse_cli()
 
     event_handler = PymonEventHandler(
             cli["regexes"], 
