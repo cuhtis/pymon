@@ -10,7 +10,8 @@ def parse_settings():
 
     # Read config file
     config = ConfigParser.ConfigParser()
-    config.read("settings.cfg")
+    config_file = os.path.join(os.path.dirname(__file__), "config/settings.cfg")
+    config.read(config_file)
     
     # Initiate settings
     settings = dict(config.items("pymon"))
