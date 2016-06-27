@@ -12,12 +12,31 @@ Pymon is a Python port of Nodemon. It monitors the file system at a given path/d
 
 ## Basic Usage
 
+To run an application, run:
 ```
 ./pymon.py app.py [args ...]
 ```
 or
 ```
 python pymon.py app.py [args ...]
+```
+
+To restart an application, type:
+```
+rs
+```
+or
+```
+restart
+```
+
+To stop an application, type:
+```
+stop
+```
+or
+```
+<Ctrl+C>
 ```
 
 ## Advanced Usage
