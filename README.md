@@ -6,9 +6,11 @@ Pymon is a Python port of Nodemon. It monitors the file system at a given path/d
 
 ## Features
 
-* Manual restarting of applications by typing `rs` in command-line interface
-* Custom providing of a directory/path to monitor
-* Use regex to filter and match which files/directories to monitor
+* Manual restarting of applications by typing `rs` or `restart` in command-line interface
+* Automatic restarting of applications whenever changes in the file system are detected
+* Able to custom specify a directory/path to monitor
+* Able to use regex to filter and match which files/directories to monitor
+* Use a configuration file or environment variables to preset your settings
 
 ## Basic Usage
 
@@ -75,8 +77,6 @@ To use multiple regexes:
 
 ## TODO
 
-* Improve CLI interface
-* Add support for directory ignores
 * Add support for use as a library
 * Add support for multiple apps/processes
 * Be installable as a pip library/module
