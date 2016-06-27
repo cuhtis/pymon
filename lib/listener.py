@@ -24,7 +24,7 @@ class PymonListener():
         
         # Start the application
         # TODO: Need to listen for application terminating early/itself
-        debug("Starting %s %s" % (self.prog, self.app_args))
+        colour_print(GREEN_COLOUR, "[pymon] Starting '%s %s'" % (self.prog, self.app_args))
         self.proc = subprocess.Popen([self.prog, self.app_args])
 
     def stop(self):
@@ -40,6 +40,7 @@ class PymonListener():
 
     def restart(self):
         # Restart the application
+        colour_print(GREEN_COLOUR, "[pymon] Restarting")
         if self.proc != None:
             self.stop()
         self.start()

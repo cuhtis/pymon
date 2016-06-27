@@ -14,6 +14,9 @@ def run():
     settings = parse_settings()
     debug(settings)
 
+    colour_print(BLUE_COLOUR, "[pymon] Pymon %s" % settings["version"])
+    colour_print(BLUE_COLOUR, "[pymon] Watching %s" % settings["path"])
+
     # Create an event handler for file system changes
     event_handler = PymonEventHandler(
             settings["regexes"], 
