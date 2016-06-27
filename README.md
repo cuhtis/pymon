@@ -12,6 +12,20 @@ Pymon is a Python port of Nodemon. It monitors the file system at a given path/d
 * Able to use regex to filter and match which files/directories to monitor
 * Use a configuration file or environment variables to preset your settings
 
+## Installation
+
+Currently, the only way to install Pymon is to download from source:
+```
+git clone https://github.com/curtis99877/pymon.git
+```
+
+It may be useful to add the directory to your PATH:
+```
+export PATH="$PATH:<pymon root dir>"
+```
+
+In the future, pymon will hopefully be available as a pip module.
+
 ## Basic Usage
 
 To run an application, run:
@@ -80,6 +94,7 @@ To use multiple regexes:
 * Add support for use as a library
 * Add support for multiple apps/processes
 * Be installable as a pip library/module
+* Be installable as a brew tap
 
 ## Dependencies
 
