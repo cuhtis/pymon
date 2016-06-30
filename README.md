@@ -91,6 +91,7 @@ To use multiple regexes:
 
 ## TODO
 
+* Add support for other programs than Python
 * Add support for use as a library
 * Add support for multiple apps/processes
 * Be installable as a pip library/module
