@@ -13,7 +13,7 @@ class PymonTransport():
     def add_listeners(self, listeners):
         # Register a list of listeners
         debug("Adding listeners")
-        self.listeners.append(listeners)
+        self.listeners.extend(listeners)
     
     def remove_listener(self, listener):
         # Remove a listener from the list

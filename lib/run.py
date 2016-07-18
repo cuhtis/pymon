@@ -34,6 +34,7 @@ def run():
             settings["prog"], 
             settings["app_args"])
     transport.add_listener(listener)
+    listener.start()
 
     try:
         # Loop for user input

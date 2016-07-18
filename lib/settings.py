@@ -1,11 +1,10 @@
 import os
-import sys
 import argparse
 import textwrap
 import ConfigParser
 
 
-def parse_settings():
+def parse_settings(argv):
     global settings
 
     # Read config file
@@ -18,7 +17,7 @@ def parse_settings():
 
     # Setup command-line parser
     parser = argparse.ArgumentParser(
-            sys.argv[0],
+            argv[0],
             formatter_class=argparse.RawDescriptionHelpFormatter,
             description=textwrap.dedent('''\
                     Pymon %s
@@ -86,7 +85,7 @@ def parse_settings():
             nargs="+")
 
     # Parse the arguments
-    args = vars(parser.parse_args())
+    args = vars(parser.parse_args(argv))
     args["app_args"] = " ".join(args["args"])
 
     # Add the arguments to settings dict
@@ -106,9 +105,9 @@ def env_settings():
 def get_settings():
     global settings
 
-    # Create settings if not exists
+    # If no settings, create a default settings
     if "settings" not in globals():
-        return parse_settings()
+        settings = parse_settings(['pymon', 'test'])
 
     # Return settings
     return settings

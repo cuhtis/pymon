@@ -10,9 +10,6 @@ class PymonListener():
         self.app_args = app_args
         self.proc = None
 
-        # Start the application
-        self.start()
-
     def get_app(self):
         return self.prog
 
@@ -44,6 +41,13 @@ class PymonListener():
         if self.proc != None:
             self.stop()
         self.start()
+    
+    def ping(self):
+        print "Ping"
+        self.proc.poll()
+        if self.proc.returncode != None:
+            colour_print(GREEN_COLOUR, "[pymon] '%s %s' has terminated" % (self.prog, self.app_args))
+            self.proc = None
 
     def handle_msg(self, msg):
         debug(msg)
@@ -56,5 +60,7 @@ class PymonListener():
             self.stop()
         elif msg == "start":
             self.start()
+        elif msg == "ping":
+            self.ping()
         else:
             warn("Unknown command: %s" % msg)
