@@ -2,14 +2,17 @@ import sys
 import os
 import argparse
 import textwrap
-import ConfigParser
+try:
+    import configparser
+except:
+    from six.moves import configparser
 
 
 def parse_settings(argv):
     global settings
 
     # Read config file
-    config = ConfigParser.ConfigParser()
+    config = configparser.ConfigParser()
     config_file = os.path.join(os.path.dirname(__file__), "config/settings.cfg")
     config.read(config_file)
     
