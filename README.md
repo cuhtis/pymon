@@ -11,7 +11,7 @@ Pymon is a Python port of Nodemon. It monitors the file system at a given path/d
 * Able to custom specify a directory/path to monitor
 * Able to use regex to filter and match which files/directories to monitor
 * Use a configuration file or environment variables to preset your settings
-* Automated test suite using PyUnit/unittest
+* Automated test suite using PyUnit/unittest and Travis
 
 ## Installation
 
