@@ -2,10 +2,7 @@ import sys
 import os
 import argparse
 import textwrap
-try:
-    import configparser
-except:
-    from six.moves import configparser
+from six.moves import configparser
 
 
 def parse_settings(argv):
