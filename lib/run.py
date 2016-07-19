@@ -9,7 +9,7 @@ from lib.debug import *
 
 def run():
     # Create and read all the settings
-    settings = parse_settings()
+    settings = parse_settings(sys.argv[1:])
     debug(settings)
 
     colour_print(BLUE_COLOUR, "[pymon] Pymon %s" % settings["version"])

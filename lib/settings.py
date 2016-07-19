@@ -1,3 +1,4 @@
+import sys
 import os
 import argparse
 import textwrap
@@ -17,7 +18,7 @@ def parse_settings(argv):
 
     # Setup command-line parser
     parser = argparse.ArgumentParser(
-            argv[0],
+            sys.argv[0],
             formatter_class=argparse.RawDescriptionHelpFormatter,
             description=textwrap.dedent('''\
                     Pymon %s
