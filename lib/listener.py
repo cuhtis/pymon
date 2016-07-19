@@ -13,7 +13,7 @@ class PymonListener():
     def get_app(self):
         return self.prog
 
-    def start(self, capture_out=False):
+    def start(self):
         # Check if there is already a running application
         if self.proc != None:
             warn("Already running %s %s" % (self.prog, self.app_args))
@@ -22,10 +22,7 @@ class PymonListener():
         # Start the application
         # TODO: Need to listen for application terminating early/itself
         colour_print(GREEN_COLOUR, "[pymon] Starting '%s %s'" % (self.prog, self.app_args))
-        if capture_out:
-            self.proc = subprocess.Popen([self.prog, self.app_args], stdout=subprocess.PIPE)
-        else:
-            self.proc = subprocess.Popen([self.prog, self.app_args])
+        self.proc = subprocess.Popen([self.prog, self.app_args])
 
     def stop(self):
         # Check if there is a running application
@@ -39,12 +36,12 @@ class PymonListener():
         self.proc.terminate()
         self.proc = None
 
-    def restart(self, capture=False):
+    def restart(self):
         # Restart the application
         colour_print(GREEN_COLOUR, "[pymon] Restarting")
         if self.proc != None:
             self.stop()
-        self.start(capture)
+        self.start()
     
     def ping(self):
         print "Ping"
