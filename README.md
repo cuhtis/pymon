@@ -12,6 +12,7 @@ Pymon is a Python port of Nodemon. It monitors the file system at a given path/d
 * Able to use regex to filter and match which files/directories to monitor
 * Use a configuration file or environment variables to preset your settings
 * Automated test suite using PyUnit/unittest and Travis
+* Build support for both versions Python 2 and Python 3
 
 ## Installation
 
@@ -93,11 +94,10 @@ To use multiple regexes:
 ## TODO
 
 * Add support for other programs than Python
-* Add support for use as a library
 * Add support for multiple apps/processes
 * Be installable as a pip library/module
-* Be installable as a brew tap
 
 ## Dependencies
 
 * Watchdog
+* Six
