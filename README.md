@@ -1,4 +1,4 @@
-# Pymon
+# Pymon [![Build Status](https://travis-ci.org/curtis99877/pymon.svg?branch=master)](https://travis-ci.org/curtis99877/pymon)
 
 Created by Curtis Li
 
