@@ -31,7 +31,7 @@ def debug(msg):
         # Print message with caller information
         stack = inspect.stack()[1]
         caller = "%s%s:%d:%s%s" % (BOLD, stack[1], stack[2], stack[3], END)
-        print "%s: %s" % (caller, msg)
+        print("%s: %s" % (caller, msg))
 
 
 def warn(msg):
@@ -41,7 +41,7 @@ def warn(msg):
         caller = "%s%s:%d:%s%s" % (BOLD, stack[1], stack[2], stack[3], END)
         msg = "%s%s%s" % (WARN_COLOUR, msg, END)
         
-        print "%s: %s" % (caller, msg)
+        print("%s: %s" % (caller, msg))
 
 
 def wtf(msg, trace=False):
@@ -51,13 +51,13 @@ def wtf(msg, trace=False):
         caller = "%s%s:%d:%s%s" % (BOLD, stack[1], stack[2], stack[3], END)
         msg = "%s%s%s" % (FAIL_COLOUR, msg, END)
         
-        print "%s: %s" % (caller, msg)
+        print("%s: %s" % (caller, msg))
         
         if trace:
             # Print entire stack trace
-            print "Stack trace:"
+            print("Stack trace:")
             for level in inspect.stack()[1:]:
-                print "\t%s:%s:%d:%s" % (level[0], level[1], level[2], level[3])
+                print("\t%s:%s:%d:%s" % (level[0], level[1], level[2], level[3]))
 
         # Exit with error code 1
         sys.exit(1)

@@ -44,7 +44,6 @@ class PymonListener():
         self.start()
     
     def ping(self):
-        print "Ping"
         self.proc.poll()
         if self.proc.returncode != None:
             colour_print(GREEN_COLOUR, "[pymon] '%s %s' has terminated" % (self.prog, self.app_args))
