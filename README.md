@@ -11,6 +11,7 @@ Pymon is a Python port of Nodemon. It monitors the file system at a given path/d
 * Able to custom specify a directory/path to monitor
 * Able to use regex to filter and match which files/directories to monitor
 * Use a configuration file or environment variables to preset your settings
+* Support for restarting both Python and non-Python applications
 * Automated test suite using PyUnit/unittest and Travis
 * Build support for both versions Python 2 and Python 3
 
@@ -74,6 +75,18 @@ or
 ./pymon.py --debug
 ```
 
+##### Running non-Python applications
+
+Declare the runtime for running the  application, e.g. JavaScript:
+```
+./pymon.py --exec node app.js
+```
+
+Default settings:
+```
+./pymon.py --exec python
+```
+
 ##### Regex matching
 
 To only monitor certain files:
@@ -93,7 +106,6 @@ To use multiple regexes:
 
 ## TODO
 
-* Add support for other programs than Python
 * Add support for multiple apps/processes
 * Be installable as a pip library/module
 
