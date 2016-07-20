@@ -61,6 +61,7 @@ def parse_settings(argv):
             "--exec",
             action="store",
             metavar="PROG",
+            dest="prog",
             default="python",
             help="program to execute application (Default: %s)" % config.get("pymon", "prog"))
 
