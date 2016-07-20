@@ -9,7 +9,7 @@ class MonitorTestCase(unittest.TestCase):
         called = False
         self.old_popen = subprocess.Popen
         subprocess.Popen = self.mocked_call
-        self.listener = PymonListener("python", "tests/hello.py")
+        self.listener = PymonListener("python", "hello.py")
         self.assertIsNone(self.listener.proc)
         self.listener.start()
 
@@ -27,8 +27,8 @@ class MonitorTestCase(unittest.TestCase):
         called = False
 
     def testRestartTouchFile(self):
-        with open('tests/test_file.txt', 'a'):
-            os.utime('tests/test_file.txt', None)
+        with open('test_file.txt', 'a'):
+            os.utime('test_file.txt', None)
             self.check_call()
 
 def suite():
