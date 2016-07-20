@@ -1,3 +1,5 @@
 env
 *.pyc
 *.swp
+dist
+test_file.txt
